@@ -1,0 +1,17 @@
+title Notes talletus kaavio
+
+Selain->Palvelin: HTTPS POST: https://studies.cs.helsinki.fi/exampleapp/new_note, data: Kommentti
+note right of Palvelin: Palvelin tallettaa kommentin ja ohjaa paluukoodillaan 302 uudelleenlataukseen
+Palvelin->Selain: 302 uudelleenohjaus: lataa sivu notes
+Selain->Palvelin: GET: notes
+Palvelin->Selain: notes
+note right of Selain: Selain hakee kaikki sivun notes resurssit
+Selain->Palvelin: GET: main.css
+Palvelin->Selain: main.css
+Selain->Palvelin: GET: main.js
+Palvelin->Selain: main.js
+Selain->Palvelin: GET: data.json
+Palvelin->Selain: data.json
+Selain->Palvelin: GET: favicon.ico
+Palvelin->Selain: favicon.ico
+note left of Selain: Selain renderöi sivun uudelleen. Mukana myös lisätty kommentti
