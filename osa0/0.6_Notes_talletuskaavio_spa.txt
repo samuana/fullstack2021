@@ -1,0 +1,7 @@
+title 0.6_Notes_talletuskaavio_spa
+
+note left of Selain: Selain lisää javascriptillä uuden kommentin sivulle ja renderöi
+note left of Selain: Selain lähettää datan Palvelimelle 
+Selain->Palvelin: HTTP POST: https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note right of Palvelin: Palvelin tallettaa datana tulleen kommentin ja kuittaa tallettaneensa
+Palvelin->Selain: HTTP 201 Created
