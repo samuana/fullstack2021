@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const Statistics = (props) => {
-  let allCount = 0
+  let allCount = props.good + props.neutral + props.bad
   let avg = 0
   let positiveP = 0
 
@@ -33,7 +33,20 @@ const Statistics = (props) => {
       positiveP
     )
   }
-  
+
+//  allCount = props.good + props.neutral + props.bad
+  console.log(allCount)
+  console.log(avg)
+  console.log(positiveP)
+
+  if (allCount === 0) {
+    return (
+      <div>
+        No feedback given 
+      </div>
+    )
+  }
+ 
   return (
     <>
       <p>all      <CountAll />        </p>
@@ -41,7 +54,6 @@ const Statistics = (props) => {
       <p>positive <CountPositive /> % </p>
     </>
   )
-
 }
 
 const App = () => {
