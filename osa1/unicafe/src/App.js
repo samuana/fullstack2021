@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 const StatisticLine = (props) => {
   return(
-    <div>
-      <p>{props.text}  {props.value}  </p>
-    </div>
+    <>
+      <td>{props.text}</td><td>  {props.value}  </td>
+    </>
   )
 }
 
@@ -38,17 +38,17 @@ const Statistics = (props) => {
 
   if (allCount === 0) {
     return (
-      <div>
-        No feedback given 
-      </div>
+      <>
+        <tr><td>No feedback given</td><td></td></tr> 
+      </>
     )
   }
  
   return (
     <>
-      <StatisticLine text="all" value ={allCount} />
-      <StatisticLine text="average" value ={avg} />
-      <StatisticLine text="positive" value ={positiveP} />
+      <tr><StatisticLine text="all" value ={allCount} /></tr>
+      <tr><StatisticLine text="average" value ={avg} /></tr>
+      <tr><StatisticLine text="positive" value ={positiveP} /></tr>
       {/* <p>all      <CountAll />        </p>
       <p>average  <CountAverage />    </p>
       <p>positive <CountPositive /> % </p> */}
@@ -98,12 +98,13 @@ const App = () => {
       <button onClick={handleBad}>bad</button>
  */}
       <h1>statistics</h1>
-
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
+      <table><tbody>
+      <tr><td>good</td><td> {good}</td></tr>
+      <tr><td>neutral</td><td>  {neutral}</td></tr>
+      <tr><td>bad</td><td>  {bad}</td></tr>
       
       <Statistics good={good} neutral={neutral} bad={bad} />
+      </tbody></table>
 {/* 
       <p>all      <CountAll />        </p>
       <p>average  <CountAverage />    </p>
