@@ -2,39 +2,28 @@ import React, { useState } from 'react'
 
 const Statistics = (props) => {
   let allCount = props.good + props.neutral + props.bad
-  let avg = 0
-  let positiveP = 0
+  let avg = (props.good - props.bad)/allCount
+  let positiveP = props.good/allCount * 100
 
   const CountAll = () => {
-    allCount = props.good + props.neutral + props.bad
     return (
       allCount
     )
   }
 
   const CountAverage = () => {
-    avg = (props.good - props.bad)/allCount
-    // console.log(avg)
-    // if (avg == NaN)
-    //   avg = "" 
-
     return (
       avg
     )
   }
 
   const CountPositive = () => {
-    positiveP = props.good/allCount * 100
-    // console.log(positiveP)
-    // if (positiveP == NaN)
-    //   positiveP = "" 
 
     return (
       positiveP
     )
   }
 
-//  allCount = props.good + props.neutral + props.bad
   console.log(allCount)
   console.log(avg)
   console.log(positiveP)
@@ -74,12 +63,6 @@ const App = () => {
   const handleBad = () => {
     setBad(bad + 1)
   }
-
-
-  // const CountPositive = () => {
-  //   positiveP = good/allCount * 100
-  // }
-
 
   return (
     <div>
