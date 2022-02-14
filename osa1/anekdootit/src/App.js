@@ -1,20 +1,5 @@
 import React, { useState } from 'react'
 
-const ShowMostVoted = (props) => {
-  let maxVotes = 0
-  let maxVotesIndex = 0
-  for (let index = 0; index < props.statistics.length; ++index) {
-    if (props.statistics[index] >= maxVotes) {
-      maxVotesIndex = index
-      maxVotes = props.statistics[index]
-    }
-  }
- 
-  return (
-    props.anecdotes[maxVotesIndex]
-    
-    )
-}
 
 const App = () => {
   const anecdotes = [
@@ -44,6 +29,22 @@ const App = () => {
     setStatistics(newStat)
   }
 
+  const ShowMostVoted = () => {
+    let maxVotes = 0
+    let maxVotesIndex = 0
+    for (let index = 0; index < statistics.length; ++index) {
+      if (statistics[index] >= maxVotes) {
+        maxVotesIndex = index
+        maxVotes = statistics[index]
+      }
+    }
+   
+    return (
+      anecdotes[maxVotesIndex]
+      
+      )
+  }
+  
   return (
     <div>
       <h2>Anecdote of the day</h2>
@@ -52,7 +53,7 @@ const App = () => {
       <button onClick={handleVote}>vote</button>
       <button onClick={handleSelect}>next anecdote</button>
       <h2>Anecdote with most votes</h2>
-      <p><ShowMostVoted statistics = {statistics} anecdotes ={anecdotes}/></p>
+      <p><ShowMostVoted /></p>
       <p>has {Math.max(...statistics)} votes</p>
     </div>
   )
