@@ -17,6 +17,11 @@ const App = () => {
         id: 2
       },
       {
+        name: 'Ropsien käyttö kaivosten tukemiseen',
+        exercises: 2,
+        id: 4
+      },
+      {
         name: 'State of a component',
         exercises: 14,
         id: 3

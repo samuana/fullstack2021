@@ -17,7 +17,7 @@ const Course = (kurssi) => {
     return (
       <>
         <p>
-        {props.par.name} {props.par.exercises}
+        {props.part.name} {props.part.exercises}
         </p>
       </>
     )
@@ -55,10 +55,10 @@ const Course = (kurssi) => {
 return (
     <div>
          <Header  course={kurssi.course.name} /> 
-         {/* {kurssi.course.parts.map(part => 
-          <Part part={part} />
-      )} */}
-         <Content parts={kurssi.course.parts}  />
+         {kurssi.course.parts.map(part => 
+          <Part key={part.id} part={part} />
+      )}
+         {/* <Content parts={kurssi.course.parts}  /> */}
          {/* <Total   parts={kurssi.course.parts}  /> */}
     </div>
     )
