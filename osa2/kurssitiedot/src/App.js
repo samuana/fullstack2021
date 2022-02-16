@@ -17,7 +17,7 @@ const App = () => {
         id: 2
       },
       {
-        name: 'Ropsien käyttö kaivosten tukemiseen',
+        name: 'Using props to support mine tunnels',
         exercises: 2,
         id: 4
       },

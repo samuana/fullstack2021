@@ -23,34 +23,22 @@ const Course = (kurssi) => {
     )
   }
 
-  const Content = (props) => {
-    console.log("content-i", props)
-    return (
-      <>
-        <Part par={props.parts[0]}/>
-        <Part par={props.parts[1]}/>
-        <Part par={props.parts[2]}/>
-      </>
-    )
-  }
-
   const Total = (props) => {
+    const total = props.parts.reduce( (sum, exe) => {
+      return sum += exe.exercises 
+    }, 0)
+
     return ( 
       <>
-        <p>
-          Number of exercises {
-          props.parts[0].exercises + 
-          props.parts[1].exercises + 
-          props.parts[2].exercises}
-        </p>
+        <p><strong>
+          total of {total} exercises
+          </strong></p>
       </>
     )
   }
 
   console.log("main-i", kurssi.course)
   console.log("main-name", kurssi.course.name)
-  console.log("main-id", kurssi.course.id)
-  console.log("main-parts", kurssi.course.parts)
 
 return (
     <div>
@@ -58,8 +46,7 @@ return (
          {kurssi.course.parts.map(part => 
           <Part key={part.id} part={part} />
       )}
-         {/* <Content parts={kurssi.course.parts}  /> */}
-         {/* <Total   parts={kurssi.course.parts}  /> */}
+         <Total   parts={kurssi.course.parts}  />
     </div>
     )
 }
