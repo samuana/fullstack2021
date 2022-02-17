@@ -2,12 +2,11 @@ const Course = (kurssi) => {
 
   const Header = (props) => {
     console.log("header-i", props)
-    console.log("header-txt", props.course)
     return (
       <>
-        <h1>
-          {props.course}
-        </h1>
+        <h2>
+          {props.name}
+        </h2>
       </>
     )
   }
@@ -37,29 +36,30 @@ const Course = (kurssi) => {
     )
   }
 
-  console.log("main-i", kurssi.course)
-  console.log("main-name", kurssi.course.name)
+  const Courses = (props) => {
+    console.log("course", props)
 
+    return ( 
+      <>
+      <Header  name ={props.part.name} /> 
+      {props.part.parts.map(part => 
+        <Part key={part.id} part={part} />
+      )}
+      <Total   parts={props.part.parts}  /> 
+      </>
+    )
+  }
+
+  console.log("main-i", kurssi.course)
+  
 return (
     <div>
-         <Header  course={kurssi.course.name} /> 
-         {kurssi.course.parts.map(part => 
-          <Part key={part.id} part={part} />
+      <h1>Web development curriculum</h1>
+      {kurssi.course.map(part => 
+        <Courses key={part.id} part={part} />
       )}
-         <Total   parts={kurssi.course.parts}  />
     </div>
     )
 }
     
-/*
-App
-  Course
-    Header
-    Content
-      Part
-      Part
-      ...
-*/
-
-
  export default Course
