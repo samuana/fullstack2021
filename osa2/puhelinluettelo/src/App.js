@@ -1,5 +1,38 @@
 import { useState } from 'react'
 
+// const Filter = (newFilter, handleFilterChangef) => {
+//   console.log('filtteri', newFilter, handleFilterChangef )
+//   return (
+//     <p>
+//       filter shown with <input
+//       value={newFilter}
+//       onChange={handleFilterChangef} />
+//     </p>
+//   )
+// }
+
+const PrintPerson = ({onePerson}) => {
+  return (
+    <>
+      <p>
+        {onePerson.name} {onePerson.number} </p>   
+    </>
+  )
+}
+
+const PersonsList = ({persons}) => {
+  return (
+    <>
+      {persons.map(person =>
+        <PrintPerson key={person.name} onePerson={person}/>
+      
+        // <p key={person.name} >
+        //   {person.name} {person.number} </p> 
+      )}  
+    </>
+  )
+}
+
 const App = () => {
   const [persons, setPersons] = useState([
     { name: 'Arto Hellas', number: '040-123456' },
@@ -45,6 +78,7 @@ const App = () => {
     <div>
       <h2>Phonebook</h2>
 
+      {/* <Filter newFilter={newFilter} handleFilterChangef={handleFilterChange}/> */}
       <div>
         filter shown with <input
           value={newFilter}
@@ -74,10 +108,12 @@ const App = () => {
 
       {console.log('filteröity', filteredPersons) }
 
-      {filteredPersons.map(person =>
+      <PersonsList persons={filteredPersons} />
+      {/* {filteredPersons.map(person =>
         <p key={person.name} >
           {person.name} {person.number} </p> 
-      )}
+      )} */}
+
     </div>
   )
 
