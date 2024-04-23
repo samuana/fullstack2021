@@ -2,12 +2,22 @@
 sequenceDiagram
     participant browser
     participant server
-    
+
+    activate browser
+    Note right of browser: Käyttäjä täyttää Note-kentän ja painaa tallenna-nappulaa
+    deactivate browser
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    Note left of server: Uusi note talletetaan palvelimelle
+    server-->>browser: Status 302
+    deactivate server
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
     deactivate server
-    
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
