@@ -11,8 +11,8 @@ sequenceDiagram
     activate server
     Note left of server: Uusi note talletetaan palvelimelle
     server-->>browser: Status 302
-    Note right of browser: 302 ohjaa selaimen lataamaan sivun uudelleen
     deactivate server
+    Note right of browser: 302 ohjaa selaimen lataamaan sivun uudelleen
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
